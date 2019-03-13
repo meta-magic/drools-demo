@@ -1,14 +1,14 @@
 # Drools Demo
 
 This demo focus on 3 key points
-- Dynamically loading Drools [Rule file](https://github.com/meta-magic/drools-demo/blob/master/DB/droolsrule.txt) from DB and loading in KSession
+- Dynamically loading Drools [Rule file](https://github.com/meta-magic/drools-demo/blob/master/DB/droolsrule.txt) from DB in KSession
 - Dynamically creating model which are defined in Drools File using [Declare](https://access.redhat.com/documentation/en-us/red_hat_jboss_bpm_suite/6.2/html/development_guide/sect-type_declaration)
 - Get the runtime model defined in DRL and map the Incoming JSON structure to the Model
 
 ## Prerequisite before you start application
-- Make sure you have run [create](https://github.com/meta-magic/drools-demo/blob/master/DB/create-script.sql) and [load data](https://github.com/meta-magic/drools-demo/blob/master/DB/data.csv) in DB.
+- Run [create](https://github.com/meta-magic/drools-demo/blob/master/DB/create-script.sql) and [load data](https://github.com/meta-magic/drools-demo/blob/master/DB/data.csv) before your proceed.
 
-# Steps to run
+## Steps to run
 - Start spring-boot application
   - mvn spring-boot:run
 - Start angular application
