@@ -1,0 +1,18 @@
+package com.drools.examples
+
+declare CustomerCart
+    id : String
+    customerId : String
+    customerType : String
+    totalAmount : Double
+    discount : Integer
+    payableAmount: Double
+end
+
+rule "Offer for Diamond"
+	when 
+		customerCart: CustomerCart(customerType == "GOLD")
+	then
+		customerCart.setDiscount(20);
+		customerCart.setPayableAmount(customerCart.getTotalAmount() - ((customerCart.getTotalAmount()/100)*customerCart.getDiscount()));
+	end
