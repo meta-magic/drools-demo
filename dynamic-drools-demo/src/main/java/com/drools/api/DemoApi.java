@@ -27,5 +27,6 @@ public class DemoApi {
 		System.out.println(newobj);
 		return new ResponseEntity<Object>(newobj, HttpStatus.OK);
 	}
+	
 
 }

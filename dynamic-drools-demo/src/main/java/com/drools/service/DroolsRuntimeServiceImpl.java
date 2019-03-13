@@ -42,11 +42,6 @@ public class DroolsRuntimeServiceImpl implements DroolsRuntimeService
 			kieSession.fireAllRules();
 			kieSession.dispose();
 					
-			System.out.println("Total amount : "+factType.get( runtimeInstance, "totalAmount" ));
-			System.out.println("Discount Applied : "+factType.get( runtimeInstance, "discount" ));
-			System.out.println("Total amount after discount : "+factType.get( runtimeInstance, "payableAmount" ));		
-			
-			
 			return newobj;
 		} catch (RepositoryException e) {
 			throw new ServiceException("Drools Service Exception",e);
@@ -68,5 +63,5 @@ public class DroolsRuntimeServiceImpl implements DroolsRuntimeService
 			throw new InvalidJsonException(e);
 		}
 	}
-
+ 
 }

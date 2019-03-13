@@ -10,7 +10,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class DroolsDRL implements Entity{
 	
 	@PrimaryKey
-	@Persistent(column = "_id", customValueStrategy = "uuid")
+	@Persistent(column = "_id")
 	private String id;
 
 	private String name;
@@ -29,6 +29,16 @@ public class DroolsDRL implements Entity{
 		super();
 		this.id = id;
 	}
+	
+	public DroolsDRL(String id, String name, String dsl, String pkg, String className) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dsl = dsl;
+		this.pkg = pkg;
+		this.className = className;
+	}
+
 	public String getId() {
 		return id;
 	}

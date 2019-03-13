@@ -10,7 +10,6 @@ public class DroolsDRLRepositoryImpl extends GenericRepository<DroolsDRL> implem
  
 	@Override
 	public DroolsDRL findById(String id) throws RepositoryException {
-		
 		return (DroolsDRL) super.findById(new DroolsDRL(id));
 	}
 
