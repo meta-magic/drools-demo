@@ -1,0 +1,33 @@
+6c2e77ea-5bde-4200-903b-606fc40b74b3,RechargeDto,"package com.drools.examples
+
+declare RechargeDto
+    name : String
+    connectionType : String
+    mobileNo : String
+    rechargeAmount : Double
+    discount : Integer
+    payableAmount: Double
+end
+
+rule '"Set payable amount same as total amount'"
+	when 
+		rechargeDto: RechargeDto( mobileNo != null)
+	then
+		rechargeDto.setPayableAmount(rechargeDto.getRechargeAmount());
+end
+
+rule '"Offer for Postpaid'"
+	when 
+		rechargeDto: RechargeDto(connectionType == 1)
+	then
+		rechargeDto.setDiscount(10);
+		rechargeDto.setPayableAmount(rechargeDto.getRechargeAmount() - ((rechargeDto.getRechargeAmount()/100)*rechargeDto.getDiscount()));
+end
+
+rule '"Offer for Prepaid'"
+	when 
+		rechargeDto: RechargeDto(connectionType == 2)
+	then
+		rechargeDto.setDiscount(40);
+		rechargeDto.setPayableAmount(rechargeDto.getRechargeAmount() - ((rechargeDto.getRechargeAmount()/100)*rechargeDto.getDiscount()));
+end",Discount based on customer type,com.drools.examples
