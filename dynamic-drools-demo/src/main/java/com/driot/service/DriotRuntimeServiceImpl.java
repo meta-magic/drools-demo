@@ -17,9 +17,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class DriotRuntimeServiceImpl implements DriotRuntimeService
 {
 	@Autowired
-	private KieContainer kieContainer;
-
-	@Autowired
 	private DriotDRLRepository driotDRLRepository;
 	 
 	@Autowired
