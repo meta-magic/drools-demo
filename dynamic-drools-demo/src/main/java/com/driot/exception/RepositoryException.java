@@ -1,4 +1,4 @@
-package com.drools.exception;
+package com.driot.exception;
 
 public class RepositoryException extends Exception{
 

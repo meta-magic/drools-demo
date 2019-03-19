@@ -1,4 +1,4 @@
-package com.drools.repo;
+package com.driot.repo;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.jdo.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.drools.entity.Entity;
-import com.drools.exception.RepositoryException;
+import com.driot.entity.Entity;
+import com.driot.exception.RepositoryException;
 
 public abstract class GenericRepository <T> {
 

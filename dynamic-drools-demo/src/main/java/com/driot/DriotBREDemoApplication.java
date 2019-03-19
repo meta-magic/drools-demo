@@ -1,4 +1,4 @@
-package com.drools;
+package com.driot;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DroolsDemoApplication {
+public class DriotBREDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DroolsDemoApplication.class, args);
+		SpringApplication.run(DriotBREDemoApplication.class, args);
 	}
 
 	@Bean

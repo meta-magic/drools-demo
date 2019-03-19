@@ -1,4 +1,4 @@
-package com.drools;
+package com.driot;
 
 import java.util.Properties;
 

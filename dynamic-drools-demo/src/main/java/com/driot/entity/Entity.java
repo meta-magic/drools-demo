@@ -1,4 +1,4 @@
-package com.drools.entity;
+package com.driot.entity;
 
 public interface Entity {
 

@@ -1,4 +1,4 @@
-package com.drools.service;
+package com.driot.service;
 
 import java.io.StringReader;
 import java.util.Calendar;

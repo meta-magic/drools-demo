@@ -1,4 +1,4 @@
-package com.drools.service;
+package com.driot.service;
 
 import org.kie.api.definition.type.FactType;
 import org.kie.api.runtime.KieContainer;
@@ -6,21 +6,21 @@ import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.drools.entity.DroolsDRL;
-import com.drools.exception.InvalidJsonException;
-import com.drools.exception.RepositoryException;
-import com.drools.exception.ServiceException;
-import com.drools.repo.DroolsDRLRepository;
+import com.driot.entity.DriotDRL;
+import com.driot.exception.InvalidJsonException;
+import com.driot.exception.RepositoryException;
+import com.driot.exception.ServiceException;
+import com.driot.repo.DriotDRLRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class DroolsRuntimeServiceImpl implements DroolsRuntimeService
+public class DriotRuntimeServiceImpl implements DriotRuntimeService
 {
 	@Autowired
 	private KieContainer kieContainer;
 
 	@Autowired
-	private DroolsDRLRepository droolsDRLRepository;
+	private DriotDRLRepository driotDRLRepository;
 	 
 	@Autowired
 	private DroolsKSessionUtils ksessionHandler;
@@ -29,7 +29,7 @@ public class DroolsRuntimeServiceImpl implements DroolsRuntimeService
 	{
 		
 		try {
-			DroolsDRL drl = droolsDRLRepository.findById(id);
+			DriotDRL drl = driotDRLRepository.findById(id);
 			
 			KieSession kieSession = ksessionHandler.getKSession(drl.getDsl());
 			

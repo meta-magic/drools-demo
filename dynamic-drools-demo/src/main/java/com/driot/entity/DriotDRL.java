@@ -1,13 +1,13 @@
-package com.drools.entity;
+package com.driot.entity;
 
 import javax.jdo.annotations.Cacheable;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-@PersistenceCapable(detachable = "true")
+@PersistenceCapable(detachable = "true",table = "DroolsDRL")
 @Cacheable("false")
-public class DroolsDRL implements Entity{
+public class DriotDRL implements Entity{
 	
 	@PrimaryKey
 	@Persistent(column = "_id")
@@ -21,16 +21,16 @@ public class DroolsDRL implements Entity{
 	
 	private String className;
 	
-	public DroolsDRL(){
+	public DriotDRL(){
 		super();
 	}
 	
-	public DroolsDRL(String id){
+	public DriotDRL(String id){
 		super();
 		this.id = id;
 	}
 	
-	public DroolsDRL(String id, String name, String dsl, String pkg, String className) {
+	public DriotDRL(String id, String name, String dsl, String pkg, String className) {
 		super();
 		this.id = id;
 		this.name = name;
