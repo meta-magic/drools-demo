@@ -3,8 +3,9 @@
   <amexio-layout-item [fit]="true">
     <amexio-row>
       <amexio-column [size]=12>
-        <amexio-step-wizard  (finalStage)="finalStage($event)" [header-background]="'linear-gradient(40deg, rgb(32, 150, 255), rgb(5, 255, 163))'">
-          <amexio-step-wizard-item title="Recharge" >
+        <amexio-step-wizard (finalStage)="finalStage($event)"
+          [header-background]="'linear-gradient(40deg, rgb(32, 150, 255), rgb(5, 255, 163))'">
+          <amexio-step-wizard-item title="Recharge">
             <amexio-row>
               <amexio-column [size]="12">
                 <amexio-text-input [field-label]="'Name'" name="name" [(ngModel)]="model.name"
@@ -16,36 +17,75 @@
             </amexio-row>
             <amexio-row>
               <amexio-column [size]="12">
-                <amexio-radio-group [name]="'connectionType'"  name="connectionType"  [field-label]="'Connection Type'" [horizontal]="true"
-                  [allow-blank]="false" [(ngModel)]="model.connectionType" [display-field]="'displayfield'"
-                  [value-field]="'valuefield'" [data]="connectionTypeDate">
+                <amexio-radio-group [name]="'connectionType'" name="connectionType" [field-label]="'Connection Type'"
+                  [horizontal]="true" [allow-blank]="false" [(ngModel)]="model.connectionType"
+                  [display-field]="'displayfield'" [value-field]="'valuefield'" [data]="connectionTypeDate">
                 </amexio-radio-group>
               </amexio-column>
             </amexio-row>
             <amexio-row>
               <amexio-column [size]="12">
-                <amexio-number-input [field-label]="'Mobile No'" name="mobileNo"  [place-holder]="'Please enter Mobile Number '"
-                  [(ngModel)]="model.mobileNo">
+                <amexio-number-input [field-label]="'Mobile No'" name="mobileNo"
+                  [place-holder]="'Please enter Mobile Number '" [(ngModel)]="model.mobileNo">
                 </amexio-number-input>
               </amexio-column>
             </amexio-row>
-            <amexio-row>
+            <amexio-row>  
               <amexio-column [size]="12">
-                <amexio-number-input [field-label]="'Recharge amount'"  name="rechargeAmount"  [place-holder]="'Please enter recharge amount '"
-                  [(ngModel)]="model.rechargeAmount">
+                <amexio-number-input [field-label]="'Recharge amount'" name="rechargeAmount"
+                  [place-holder]="'Please enter recharge amount '" [(ngModel)]="model.rechargeAmount">
                 </amexio-number-input>
               </amexio-column>
-            </amexio-row>            
+            </amexio-row>
           </amexio-step-wizard-item>
 
           <amexio-step-wizard-item title="Final Payment">
-              <amexio-label size="medium">
-                  Mobile No : {{model.mobileNo}} <br/>
-                  Name : {{model.name}} <br/>
-                  Total Amount : {{model.rechargeAmount}} <br/>
-                  Discount Applied : {{model.discount}} %<br/>
-                  Payable Amount : {{model.payableAmount}} <br/>
-              </amexio-label>
+            <table>
+              <tr>
+                <td>
+                  <amexio-label >Mobile No</amexio-label>
+                </td>
+                <td><amexio-label >{{model.mobileNo}}</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Name</amexio-label>
+                </td>
+                <td><amexio-label >{{model.name}}</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Recharge Amount</amexio-label>
+                </td>
+                <td style="text-align: right"><amexio-label >{{model.rechargeAmount}}</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Normal Discount</amexio-label>
+                </td>
+                <td  style="text-align: right"><amexio-label >{{model.discount- model.noOfYearCustomer}} %</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Tenure Discount</amexio-label>
+                </td>
+                <td  style="text-align: right"><amexio-label >{{model.noOfYearCustomer}} %</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Total Discount</amexio-label>
+                </td>
+                <td  style="text-align: right"><amexio-label >{{model.discount}} %</amexio-label></td>
+              </tr>
+              <tr>
+                <td>
+                  <amexio-label >Payable Amount</amexio-label>
+                </td>
+                <td  style="text-align: right"><amexio-label >{{model.payableAmount}}</amexio-label></td>
+              </tr>
+
+            </table>
+
           </amexio-step-wizard-item>
 
         </amexio-step-wizard>

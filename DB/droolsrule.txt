@@ -33,6 +33,6 @@ rule "Offer for Prepaid"
 	when 
 		rechargeDto: RechargeDto(connectionType == 2)
 	then
-		rechargeDto.setDiscount(10);
+		rechargeDto.setDiscount(5);
 		rechargeDto.setPayableAmount(rechargeDto.getRechargeAmount() - ((rechargeDto.getRechargeAmount()/100)*rechargeDto.getDiscount()));
 end

@@ -1,0 +1,31 @@
+package com.drools.examples
+
+declare OrderItem
+    itemId : String
+    itemName : String
+    qty : Integer
+    unitPrice : Double
+    totalAmount : Double
+    discount : Double
+end
+
+declare Order
+    orderId : String
+    orderDate : java.util.Date
+    orderItems1: java.util.List 
+    orderItems : OrderItem []
+end
+
+
+rule "Validate Order"
+	when 
+		$order: Order()       
+	then        
+        System.out.println("ORDER !----> "+$order);
+        for (OrderItem orderItem : $order.getOrderItems()) {
+            System.out.println("orderItem !----> "+orderItem);
+            if(orderItem.getUnitPrice() > 25000){
+                orderItem.setDiscount(20.00);
+            }
+        }
+end
