@@ -16,16 +16,18 @@ declare Order
     orderItems : OrderItem []
 end
 
+global com.driot.service.QueryService queryService
 
 rule "Validate Order"
 	when 
-		$order: Order()       
-	then        
-        System.out.println("ORDER !----> "+$order);
+		$order: Order()         
+	then 
+        Object newlist = queryService.executeQuery("");
+        System.out.println("------newlist------"+newlist);     
         for (OrderItem orderItem : $order.getOrderItems()) {
-            System.out.println("orderItem !----> "+orderItem);
             if(orderItem.getUnitPrice() > 25000){
                 orderItem.setDiscount(20.00);
             }
         }
 end
+

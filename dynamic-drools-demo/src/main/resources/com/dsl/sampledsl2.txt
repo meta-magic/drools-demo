@@ -1,0 +1,23 @@
+package com.drools.example
+
+declare CustomerStocks
+    stockId: String
+    qty: Integer
+end
+
+declare Customer
+    customerId: String;
+    customerType: Integer;
+    customerStocks: CustomerStocks []
+end
+
+rule "Check customer type platinium/gold/silver"
+    when
+        $customer: Customer()
+    then
+        for (CustomerStocks customerStocks : $customer.getCustomerStocks()) {
+            if(customerStocks.getQty() > 2){
+                $customer.setCustomerType(2);
+            }
+        }
+end    

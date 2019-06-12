@@ -22,6 +22,9 @@ public class DriotRuntimeServiceImpl implements DriotRuntimeService
 	@Autowired
 	private DroolsKSessionUtils ksessionHandler;
 	
+	@Autowired
+	private QueryService queryService;
+
 	public Object runRule(String id, String data) throws ServiceException 
 	{
 		
@@ -36,6 +39,8 @@ public class DriotRuntimeServiceImpl implements DriotRuntimeService
 			Object newobj = this.getObject(data, runtimeInstance);
 			runtimeInstance = newobj;
 			kieSession.insert(runtimeInstance);
+			//kieSession.insert(queryService);
+			//kieSession.setGlobal("queryService", queryService);
 			kieSession.fireAllRules();
 			kieSession.dispose();
 					
