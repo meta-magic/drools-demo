@@ -31,7 +31,8 @@ public class RestApi {
 	}
 
 	@PostMapping("/demo2")
-	public ResponseEntity<Object> demo2(@RequestBody String body) throws Exception{		
+	public ResponseEntity<Object>
+	 demo2(@RequestBody String body) throws Exception{		
 		
 		System.out.println("*******IN EXECUTE RULE************"+body);				
 		Object newobj = driotRuntimeService.runRule("6c2e77ea-5bde-4200-903b-606fc40b74b4",body);
@@ -48,7 +49,14 @@ public class RestApi {
 		return new ResponseEntity<Object>(newobj, HttpStatus.OK);
 	}
 
-	
+	@PostMapping("/demo4")
+	public ResponseEntity<Object> demo4(@RequestBody String body) throws Exception{		
+		
+		System.out.println("*******IN EXECUTE RULE************"+body);				
+		Object newobj = driotRuntimeService.runRule("6c2e77ea-5bde-4200-903b-606fc40b74b6",body);
+		System.out.println(newobj);
+		return new ResponseEntity<Object>(newobj, HttpStatus.OK);
+	}
 	
 	
 

@@ -39,8 +39,8 @@ public class DriotRuntimeServiceImpl implements DriotRuntimeService
 			Object newobj = this.getObject(data, runtimeInstance);
 			runtimeInstance = newobj;
 			kieSession.insert(runtimeInstance);
-			//kieSession.insert(queryService);
-			//kieSession.setGlobal("queryService", queryService);
+			kieSession.insert(queryService);
+			kieSession.setGlobal("queryService", queryService);
 			kieSession.fireAllRules();
 			kieSession.dispose();
 					

@@ -1,0 +1,28 @@
+package com.drools.examples
+
+declare RechargeDto
+    name : String
+    connectionType : String
+    mobileNo : String
+    rechargeAmount : Double
+    discount : Integer
+    payableAmount: Double
+end
+
+declare Customer
+	customerId: String
+	mobileNo: String
+	type: Integer
+end
+
+global com.driot.service.QueryService queryService
+
+rule "Set payable amount same as total amount"
+	when 
+		rechargeDto: RechargeDto( mobileNo != null)		
+	then
+
+		Object list = queryService.executeQuery("1",rechargeDto.getMobileNo(), new com.drools.examples.Customer());
+		rechargeDto.setPayableAmount(rechargeDto.getRechargeAmount());
+		System.out.println(rechargeDto.getName());
+end

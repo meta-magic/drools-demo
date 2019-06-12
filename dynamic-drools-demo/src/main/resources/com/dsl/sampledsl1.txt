@@ -22,7 +22,7 @@ rule "Validate Order"
 	when 
 		$order: Order()         
 	then 
-        Object newlist = queryService.executeQuery("");
+        Object newlist = queryService.executeQuery();
         System.out.println("------newlist------"+newlist);     
         for (OrderItem orderItem : $order.getOrderItems()) {
             if(orderItem.getUnitPrice() > 25000){
@@ -30,4 +30,3 @@ rule "Validate Order"
             }
         }
 end
-
