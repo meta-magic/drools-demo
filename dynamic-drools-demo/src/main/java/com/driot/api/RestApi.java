@@ -58,6 +58,14 @@ public class RestApi {
 		return new ResponseEntity<Object>(newobj, HttpStatus.OK);
 	}
 	
+	@PostMapping("/demo7")
+	public ResponseEntity<Object> demo7(@RequestBody String body) throws Exception{		
+		
+		System.out.println("*******IN EXECUTE RULE************"+body);				
+		Object newobj = driotRuntimeService.runRule("6c2e77ea-5bde-4200-903b-606fc40b74b7",body);
+		System.out.println(newobj);
+		return new ResponseEntity<Object>(newobj, HttpStatus.OK);
+	}
 	
 
 }

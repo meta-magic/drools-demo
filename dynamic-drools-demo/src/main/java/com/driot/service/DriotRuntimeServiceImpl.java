@@ -30,6 +30,7 @@ public class DriotRuntimeServiceImpl implements DriotRuntimeService
 		
 		try {
 			DriotDRL drl = driotDRLRepository.findById(id);
+			String str [] = {"2","1"};
 			
 			KieSession kieSession = ksessionHandler.getKSession(drl.getDsl());
 			
@@ -39,8 +40,8 @@ public class DriotRuntimeServiceImpl implements DriotRuntimeService
 			Object newobj = this.getObject(data, runtimeInstance);
 			runtimeInstance = newobj;
 			kieSession.insert(runtimeInstance);
-			kieSession.insert(queryService);
-			kieSession.setGlobal("queryService", queryService);
+			//kieSession.insert(queryService);
+			//kieSession.setGlobal("queryService", queryService);
 			kieSession.fireAllRules();
 			kieSession.dispose();
 					
