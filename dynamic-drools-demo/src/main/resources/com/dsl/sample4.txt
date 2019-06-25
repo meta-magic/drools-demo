@@ -1,0 +1,37 @@
+package com.drools.examples
+
+function Double totalAmount(OrderItem[] orderitems){
+    System.out.println(orderitems);
+    Double d = new Double(0);
+    for(int i=0;i<orderitems.length;i++){
+        System.out.println(orderitems[i]);
+        d = d + (orderitems[i].getQty() * 3000);
+    }
+    return d;
+}
+
+declare OrderItem
+    itemId : String
+    itemName : String
+    qty : Integer
+    unitPrice : Double
+    totalAmount : Double
+    discount : Double
+end
+
+declare Order
+    orderId : String
+    orderDate : java.util.Date
+    orderItems : OrderItem []
+end
+
+
+rule "Validate Order"
+	when 
+		$order: Order()         
+	then 
+      if(totalAmount($order.getOrderItems())>1000){
+        System.out.println("APPLY DISCOUNT");
+      }
+       
+end
